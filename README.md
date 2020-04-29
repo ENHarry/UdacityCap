@@ -1,37 +1,33 @@
-## Welcome to GitHub Pages
+# Udacity Capstone Project
 
-You can use the [editor on GitHub](https://github.com/ENHarry/UdacityCap/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+## Project Overview
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+For the final capstone, Starbucks offer synthetic data to be analysed for useful insights. As such, we were given free rein on the direction we wanted to take, and I decided to focus on the general data cleaning process, and how well one can work with such data.
 
-### Markdown
+## Problem Statement
+There were 2 questions I set answer through this project.
+1. In data engineering, just how much engineering do you need, and when should you stop?
+2. Is sythetic data reliable for simulations and predictions?
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+## Metrics
+While like most data scientists, I love the modeling and predictions, but sadly, that was not the approach I took with this analysis. Instead I chose to focus on the aggregation and resulting visual.
 
-```markdown
-Syntax highlighted code block
+## Data Exploration
+In looking at the data, 3 different data sets were provided:
 
-# Header 1
-## Header 2
-### Header 3
+* portfolio.json
+* profile.json
+* transcript.json 
 
-- Bulleted
-- List
+And while for the most part they didn't pose a problem, in the transcript data, the value variable which contained dictionaries as the values had significant inconsistencies. The `offer id` was present in two forms `offer_id` and `offer id`, which in a dataset of over 340,000 rows, poses a problem when trying to access each dictionary's value.
 
-1. Numbered
-2. List
+Another observation made was on the sparseness of the `offer_completed` varible. 
 
-**Bold** and _Italic_ and `Code` text
+## Data Visualization
 
-[Link](url) and ![Image](src)
-```
+![](https://www.github.com/ENHarry/Capstone/images/sum_offers_completed.png)
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+The visualizations is shows the top ten offer completions by users. It is odd that out of the 10 offers offered to users, a large portion took advantage of only 6 of those offers.
 
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/ENHarry/UdacityCap/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+## Conclusion
+A different approach needs to be taken.
