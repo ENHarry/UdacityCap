@@ -10,9 +10,13 @@ There were a few questions I set answer through this project.
 2. Do you really spend more when you earn more?
 3. How does gender affect spending?
 4. Is sythetic data reliable for simulations and predictions?
+5. With this data, how accurately can you predict whether a customer will complete their offer or not?
 
 ## Metrics
-While like most data scientists, I love the modeling and predictions, but sadly, that was not the approach I took with this analysis. Instead I chose to focus on the aggregations and resulting visual.
+Wihile there is a huge focus on the aggregations and resulting visuals, in the predictive model I created, the metrics used are:
+-- chi-square in the feature selection process 
+-- Confusion matrix, providing the precision, recall, and f1-score of the model's performance.
+-- Accuracy of the overall predictions.
 
 ## Data Cleaning and Exploration
 In looking at the data, 3 different data sets were provided:
@@ -63,5 +67,29 @@ Interestingly, based on the figure above which shows the event frequency by gend
 
 Based on all the visulization, I would say Yes. As long as the synthetic data is very similar to real data, there's alot that can be learnd from it. 
 
+## Modeling
+To create the model, I utilized the `OrdinalEncoder` and `LabelEncoder` provided in the sklearn library to encode all the variables. 
+
+In building the machine learning pipeline, I combined the SelectKbest and RFE feature selectors, and a Random Forest classifier. 
+
+The initial transfor was done with the parameters`k` set to `all` and `n` set to `5`. After the transformation, I then grid search cross-validation to determine the best parameters, which was `k = 10` and `n = 12`, with which I tuned the pipline, trained the final model, and tested it. 
+
+## Results
+
+             |precision|  recall  | f1-score |  support
+:------------|---------|----------|----------|----------:
+           0 |   0.98  |   0.88   |   0.93   |  9560
+           1 |   0.96  |   1.00   |   0.98   |  30543
+:--------------------------------------------------------:
+    accuracy |         |          |   0.97   |  40103
+   macro avg |   0.97  |   0.94   |   0.95   |  40103
+weighted avg |   0.97  |   0.97   |   0.97  |   40103
+
+`[[ 8395  1165]
+ [  146 30397]]`
+`Accuracy: 0.97`
+
+The model has an accuracy of 97% which means that 97 out of 100 predictions will be correct, and with an f1 score of 0.96, it shows that the model will perform well on independent data
+
 ## Conclusion
-The data contains useful insights to consumerism, and it will be interesting to run predictive analysis on it.
+The data contains useful insights to consumerism, and it will be interesting to see how the model performs on independent data.
