@@ -134,3 +134,5 @@ The model has an accuracy of 97% which means that 97 out of 100 predictions will
 
 ## Conclusion
 The data contains useful insights to consumerism, and it will be interesting to see how the model performs on independent data.
+
+[Click here to return to repo](https://github.com/ENHarry/Capstone)
