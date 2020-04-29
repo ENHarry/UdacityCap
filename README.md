@@ -68,15 +68,39 @@ Interestingly, based on the figure above which shows the event frequency by gend
 Based on all the visulization, I would say Yes. As long as the synthetic data is very similar to real data, there's alot that can be learnd from it. 
 
 ## Modeling
-To create the model, I utilized the `OrdinalEncoder` and `LabelEncoder` provided in the sklearn library to encode all the variables. 
+To create the model, I utilized the `OrdinalEncoder` and `LabelEncoder` provided in the sklearn library to encode all the variables, use case below.
+                          ` # split and prepare the dataset
+                            def split_data(df=df):
+                                X = df.loc[:, df.columns != 'class'].astype(str)
+                                del X['offer_completed']
+                                y = df['class']
+                                X = X.astype(str)
+                                oe = OrEncoder()
+                                oe.fit(X)
+                                X= oe.transform(X)
+                                le = LabelEncoder()
+                                le.fit(y)
+                                y = le.transform(y)
+                                return X, y`
 
 In building the machine learning pipeline, I combined the SelectKbest and RFE feature selectors, and a Random Forest classifier. 
 
+`def feature_sel(X, y, classifier, score_func = chi2, n=5, k='all', step=1):
+    # set feature selector
+    selector1 = RFE(classifier, n, step)
+    selector2 = SelectKBest(score_func,k)
+    # combine features
+    combined_features = FeatureUnion([("rfe", selector1), 
+                                      ("Kbest", selector2)])  
+    # Use combined features to transform dataset and get features
+    X_features = combined_features.fit(X, y).transform(X) 
+    return combined_features, X_features
+`
 The initial transfor was done with the parameters`k` set to `all` and `n` set to `5`. After the transformation, I then grid search cross-validation to determine the best parameters, which was `k = 10` and `n = 12`, with which I tuned the pipline, trained the final model, and tested it. 
 
 ## Results
 
-             |precision|  recall  | f1-score |  support
+ Offer Completed | precision |  recall  | f1-score |  support
 :------------|---------|----------|----------|----------:
            0 |   0.98  |   0.88   |   0.93   |  9560
            1 |   0.96  |   1.00   |   0.98   |  30543
