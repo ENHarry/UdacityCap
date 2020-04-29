@@ -47,6 +47,8 @@ So yes! There is such a thing as too much data engineering/wrangling/manipulatio
 
 2. Do you really spend more when you earn more?
 
+**Spending vs. Income | Offer vs. Income**
+:-----------------|-----------------------:
 ![](income.png) | ![](offer_com.png)            
 
 Based on the side by side plots above, which shows the number of transactions per income bracket, it is clear that people in lower income brackets spend more (at least in Starbucks), especially when they are offered by-one-get-one (BOGO) or discount deals.
