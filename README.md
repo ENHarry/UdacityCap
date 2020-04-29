@@ -25,7 +25,7 @@ Another observation made was on the sparseness of the `offer_completed` varible.
 
 ## Data Visualization
 
-![](https://www.github.com/ENHarry/Capstone/blob/master/images/sum_offers_completed.png)
+![](sum_offers_completed.png)
 
 The visualizations is shows the top ten offer completions by users. It is odd that out of the 10 offers offered to users, a large portion took advantage of only 6 of those offers.
 
