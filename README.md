@@ -47,13 +47,13 @@ So yes! There is such a thing as too much data engineering/wrangling/manipulatio
 
 2. Do you really spend more when you earn more?
 
-![](sum_offers_completed.png) | ![](sum_offers_completed.png)            
+![](income.png) | ![](offer_com.png)            
 
 Based on the side by side plots above, which shows the number of transactions per income bracket, it is clear that people in lower income brackets spend more (at least in Starbucks), especially when they are offered by-one-get-one (BOGO) or discount deals.
 
 3. How does gender affect spending?
 
-![](sum_offers_completed.png)
+![](event.png)
 
 Interestingly, based on the figure above which shows the event frequency by gender, it would seem like men really love their Starbucks coffee. This aids for good trageted marketing, and I would think that further assessing based on age would tell more.
 
